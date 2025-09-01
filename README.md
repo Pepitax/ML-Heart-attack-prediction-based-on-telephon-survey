@@ -3,20 +3,8 @@
 Binary classification on an imbalanced dataset.  
 We compare several linear models (Ridge, Logistic Regression, linear SVM) with careful preprocessing, cross-validation, and threshold tuning for F1.
 
-## TL;DR (how to run)
-
-1. **Clone / open the repo** and make sure you have Python ≥3.9.
-2. Install minimal deps:
-   ```bash
-   pip install numpy pandas matplotlib jupyter
-   ```
-3. Launch the notebook and run all:
-   ```bash
-   jupyter notebook run.ipynb
-   ```
-   The notebook orchestrates preprocessing, cross-validation, model training, and evaluation. You can toggle augmentation, K-folds, and search grids in the config cell at the top.
-
----
+## How to run ##
+The notebook **run.ipynb** orchestrates preprocessing, cross-validation, model training, and evaluation. You can toggle augmentation, K-folds, and search grids in the config cell at the top.
 
 ## Repository structure
 
@@ -38,7 +26,7 @@ We compare several linear models (Ridge, Logistic Regression, linear SVM) with c
 
 - **run.ipynb** – main entry point; runs the whole pipeline end-to-end.  
 - **implementations.py** – all core ML routines used by the notebook.  
-- **helpers.py** – utility functions.  
+- **helpers.py** – utility functions for some of the implementation.py functions.  
 - **DataProcessing/** – exploratory and data-prep notebooks and input CSVs.
 
 ---
