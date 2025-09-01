@@ -16,18 +16,22 @@ The notebook **run.ipynb** orchestrates preprocessing, cross-validation, model t
 │     ├─ y_train_top20.csv
 │     ├─ fullDataProcess.ipynb
 │     └─ top22Process.ipynb
+├─ README.md
 ├─ helpers.py
 ├─ implementations.py
-├─ run.ipynb
+├─ ml-project-1-partie1team-main.zip (template/archive)
 ├─ project1_description.pdf
-├─ README.md
-└─ ml-project-1-partie1team-main.zip   (template/archive)
+├─ project1_report.pdf
+└─ run.ipynb
 ```
 
 - **run.ipynb** – main entry point; runs the whole pipeline end-to-end.  
 - **implementations.py** – all core ML routines used by the notebook.  
 - **helpers.py** – utility functions for some of the implementation.py functions.  
 - **DataProcessing/** – exploratory and data-prep notebooks and input CSVs.
+
+- **project1_description.pdf** - the problem description
+- **project1_report.pdf** - our team's report 
 
 ---
 
