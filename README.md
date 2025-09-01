@@ -3,7 +3,6 @@
 Binary classification on an imbalanced dataset.  
 We compare several linear models (Ridge, Logistic Regression, linear SVM) with careful preprocessing, cross-validation, and threshold tuning for F1.
 
-## How to run ##
 The notebook **run.ipynb** orchestrates preprocessing, cross-validation, model training, and evaluation. You can toggle augmentation, K-folds, and search grids in the config cell at the top.
 
 ## Repository structure
