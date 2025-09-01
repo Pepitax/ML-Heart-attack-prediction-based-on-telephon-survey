@@ -5,6 +5,10 @@ We compare several linear models (Ridge, Logistic Regression, linear SVM) with c
 
 The notebook **run.ipynb** orchestrates preprocessing, cross-validation, model training, and evaluation. You can toggle augmentation, K-folds, and search grids in the config cell at the top.
 
+Since it was our first project, the repo is a bit messy, globally our implementation and methodology is explained in the **project1_report.pdf** and in the **run.ipynb**.
+
+---
+
 ## Repository structure
 
 ```
@@ -34,31 +38,6 @@ The notebook **run.ipynb** orchestrates preprocessing, cross-validation, model t
 
 - **project1_description.pdf** - the problem description
 - **project1_report.pdf** - our team's report 
-
----
-
-## Data
-
-- `x_train_top20.csv` – features.  
-- `y_train_top20.csv` – labels in `{-1, +1}` (mapped internally to `{0,1}` where needed).
-
-> **Imbalance note:** the dataset is skewed. We therefore monitor **F1** (and optionally ROC-AUC) and tune the **decision threshold** rather than relying on accuracy or a fixed 0.5 cutoff.
-
----
-
-## Reproducing our results
-
-Open `run.ipynb` and execute all cells. The top “Config” cell includes:
-- augmentation factor (times to replicate positive samples),
-- K for K-fold,
-- search grids (use **logarithmic** spacing for `λ`),
-- polynomial degree (for the bonus experiment),
-- random seed for reproducibility.
-
-**Outputs**
-- Best hyperparameters by CV,
-- Best decision threshold by F1,
-- Metrics and (optionally) plots.
 
 ---
 
