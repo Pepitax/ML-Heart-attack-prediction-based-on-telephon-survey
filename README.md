@@ -15,6 +15,8 @@ The notebook **run.ipynb** orchestrates preprocessing, cross-validation, model t
 │     ├─ y_train_top20.csv
 │     ├─ fullDataProcess.ipynb
 │     └─ top22Process.ipynb
+├─ data/
+│  └─ dataset.zip (file to unzip containing the csv files for the run.ipynb)
 ├─ README.md
 ├─ helpers.py
 ├─ implementations.py
@@ -28,6 +30,7 @@ The notebook **run.ipynb** orchestrates preprocessing, cross-validation, model t
 - **implementations.py** – all core ML routines used by the notebook.  
 - **helpers.py** – utility functions for some of the implementation.py functions.  
 - **DataProcessing/** – exploratory and data-prep notebooks and input CSVs.
+- **data/** - the total csv data used in the run.ipynb
 
 - **project1_description.pdf** - the problem description
 - **project1_report.pdf** - our team's report 
