@@ -44,36 +44,6 @@ The notebook **run.ipynb** orchestrates preprocessing, cross-validation, model t
 
 ---
 
-## Methodology
-
-### 1) Preprocessing
-- Drop obviously non-predictive or ID-like fields (e.g., phone, response month).
-- Handle missing values (constant imputation) and **scale features** (normalization/standardization) via `normalize_and_fill(...)`.
-- Map labels to `{0,1}` when a loss requires it (e.g., logistic loss).
-
-### 2) Train/validation split & augmentation
-- Split into **80% train / 20% test** (held-out).
-- Optional **positive-class augmentation**: duplicate minority samples *k* times to mitigate imbalance (configurable in the notebook).
-
-### 3) Models & selection
-- **Ridge Regression**  
-  - K-fold cross-validation over `λ` on a **log-scaled** grid.  
-  - After fitting, sweep the **classification threshold** to maximize validation **F1** (“penalty/threshold check”).
-
-- **Ridge + Polynomial Features (bonus)**  
-  - Kernelized intuition applied explicitly via polynomial expansion.  
-  - Performed on the reduced dataset (fastest and gave our best score in our tests).
-
-- **Logistic Regression (gradient) & linear SVM (gradient)**  
-  - Trained on the reduced data for speed.  
-  - Same threshold-tuning procedure as above.
-
-### 4) Evaluation
-- Report **F1** on the validation folds and test split.  
-- Also show accuracy/ROC-AUC for context, but avoid drawing conclusions from accuracy alone.
-
----
-
 ## Reproducing our results
 
 Open `run.ipynb` and execute all cells. The top “Config” cell includes:
@@ -87,21 +57,6 @@ Open `run.ipynb` and execute all cells. The top “Config” cell includes:
 - Best hyperparameters by CV,
 - Best decision threshold by F1,
 - Metrics and (optionally) plots.
-
----
-
-## Results (summary)
-
-> Replace the placeholders below with your final numbers once you run the notebook.
-
-| Model                              | Data used     | Best λ / params | Threshold | F1 (val) | F1 (test) |
-|-----------------------------------|---------------|-----------------|-----------|----------|-----------|
-| Ridge (linear)                    | reduced/aug?  | …               | …         | …        | …         |
-| Logistic Regression (gradient)    | reduced       | …               | …         | …        | …         |
-| Linear SVM (gradient)             | reduced       | …               | …         | …        | …         |
-| **Ridge + polynomial features**   | reduced       | … / degree=…    | …         | …        | **…**     |
-
-**Observation:** On this dataset, training longer or over-optimizing for accuracy tended to **hurt F1**, so we select models by **validation F1** and tune thresholds accordingly.
 
 ---
 
@@ -123,11 +78,3 @@ Open `run.ipynb` and execute all cells. The top “Config” cell includes:
 ## Notes & limitations
 - The polynomial-feature ridge was only run on the reduced dataset for time reasons; running it with augmentation could further improve F1.
 - Our “penalty check” is equivalent to **threshold calibration** to trade precision/recall; we keep the model fixed and only adjust the decision cutoff on validation data.
-
----
-
-## Contributors
-- Team: *add names here*
-
-## License
-Add your course/assignment policy or license here (if applicable).
