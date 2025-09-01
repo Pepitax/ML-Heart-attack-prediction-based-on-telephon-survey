@@ -1,5 +1,13 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/MqChnODK)
 
+## Old school project **
+### Common student methodology mistakes ###
+    No separate handling of continuous and categorical features .Mean/median imputation is improper for categorical features, where mode imputation should be used 
+    When doing grid search, some groups don't optimize the hyperparameters jointly but one by one. Also, hyperparameter search should be usually done on a logarithmic scale, not linear.
+    The logistic loss function that is supposed to pass the test is designed for class labels {0,1}, while in the project, the class labels are in {-1,+1}. Many students directly applied the same loss function on the provided class labels without mapping them to the correct range.
+    It seems like for the given dataset, there was a clear tradeoff between accuracy and F1-score: if you train too long, your F1-score deteriorates in favor of accuracy. Thus, it's important to monitor the target metric (in this case, F1-score) throughout the training and not only at the end.
+    Conclusions drawn from the accuracy metric are illogical. Accuracy is not useful when you have an imbalanced dataset (i.e. you can have 1% positive samples and 99% negative, and  a model that always predicts negative will have a 99% accuracy). Use F-1 score or AUC-ROC instead.
+
 ReadMe for the code run: 
 All the functions used in the run code are from the implementations.py file
  1. the code does data cleaning and data processing by removing some useless features as phone or month of response. Then it fills the NaN values with 0 and Normalized and standardized the datas using the normalize_and_fill function. 
